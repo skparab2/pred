@@ -1,13 +1,18 @@
 from flask import Flask, request, render_template, jsonify
 import pickle
+from flask_cors import CORS, cross_origin
 
 # Create an instance of the Flask class
 # With the name of the application’s modules
 # This way Flask knows where to look for templates, static files, etc.
 app = Flask(__name__, template_folder='templates')
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 # Create the /predict API route
 @app.route('/predict', methods=['GET', 'POST'])
+@cross_origin()
 def predict():
     # Use pickle to load in the pre-trained model
     with open(f'Model_Saved_Final.pkl', 'rb') as f:
