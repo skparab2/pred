@@ -268,7 +268,7 @@ def predict():
     #     p += 1
 
     data = {
-        "requestdata": request.data,
+        "requestdata": request.form,
         "prediction": allFeatures
     }
         # "requestargs": request.args,
