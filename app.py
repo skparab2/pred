@@ -264,7 +264,14 @@ def predict():
     #     p += 1
 
     datastr = request.data
-    datastr = datastr[2:]
+    datastr = datastr.decode("utf-8")
+
+    data = {
+        "requestdata": str(datastr),
+        "prediction": allFeatures
+    }
+
+    return jsonify(data)
 
     fullstr = datastr.split("&")
 
