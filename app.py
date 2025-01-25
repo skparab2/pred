@@ -268,6 +268,7 @@ def predict():
     #     p += 1
 
     data = {
+        "request": request,
         "prediction": allFeatures
     }
     return jsonify(data)
