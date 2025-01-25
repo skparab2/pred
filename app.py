@@ -255,13 +255,6 @@ def predict():
                     RightWatchQuatX, RightWatchQuatY, RightWatchQuatZ, RightWatchAccelX, RightWatchAccelY,
                     RightWatchAccelZ
                     ]
-    
-    # p = 0
-    # while (p < len(allFeatures)):
-    #     print("Trying to split ", features[p], "which is currently")
-    #     print("Trying to split ", allFeatures[p])
-    #     allFeatures[p] = allFeatures[p].split(",")
-    #     p += 1
 
     datastr = request.data
     datastr = datastr.decode("utf-8")
@@ -330,6 +323,11 @@ def predict():
                 RightWatchQuatX, RightWatchQuatY, RightWatchQuatZ, RightWatchAccelX, RightWatchAccelY,
                 RightWatchAccelZ
                 ]
+    
+    p = 0
+    while (p < len(allFeatures)):
+        allFeatures[p] = allFeatures[p].split(",")
+        p += 1
 
     data = {
         "requestdata": str(request.data),
