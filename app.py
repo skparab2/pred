@@ -266,13 +266,6 @@ def predict():
     datastr = request.data
     datastr = datastr.decode("utf-8")
 
-    data = {
-        "requestdata": str(datastr),
-        "prediction": allFeatures
-    }
-
-    return jsonify(data)
-
     fullstr = datastr.split("&")
 
     PhoneAccelX = fullstr[0].replace("PhoneAccelX=","")
