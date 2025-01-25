@@ -17,6 +17,21 @@ def predict():
     # Use pickle to load in the pre-trained model
     with open(f'Model_Saved_Final.pkl', 'rb') as f:
         clf = pickle.load(f)
+
+
+    features = ["PhoneAccelX", "PhoneAccelY", "PhoneAccelZ", "PhoneGyroX",
+        "PhoneGyroY", "PhoneGyroZ", "PhoneMagX", "PhoneMagY", "PhoneMagZ", 
+        "LeftWatchRoll", "LeftWatchPitch", "LeftWatchYaw","LeftWatchRotX", 
+        "LeftWatchRotY", "LeftWatchRotZ", "LeftWatchGravX", "LeftWatchGravY", "LeftWatchGravZ", 
+        "LeftWatchDMUAccelX", "LeftWatchDMUAccelY", "LeftWatchDMUAccelZ", "LeftWatchQuatW",
+        "LeftWatchQuatX", "LeftWatchQuatY", "LeftWatchQuatZ", "LeftWatchAccelX",
+        "LeftWatchAccelY", "LeftWatchAccelZ", "RightWatchRoll", 
+        "RightWatchPitch", "RightWatchYaw", "RightWatchRotX", 
+        "RightWatchRotY", "RightWatchRotZ", "RightWatchGravX", "RightWatchGravY",
+        "RightWatchGravZ", "RightWatchDMUAccelX", "RightWatchDMUAccelY", "RightWatchDMUAccelZ",
+        "RightWatchQuatW", "RightWatchQuatX", "RightWatchQuatY", "RightWatchQuatZ",
+        "RightWatchAccelX", "RightWatchAccelY", "RightWatchAccelZ"]
+        
     
     # Get the message from the API request (message parameter)
     PhoneAccelX = request.args.get('PhoneAccelX')
@@ -136,6 +151,8 @@ def predict():
 
     p = 0
     while (p < len(allFeatures)):
+        print("Trying to split ", features[p], "which is currently")
+        print("Trying to split ", allFeatures[p])
         allFeatures[p] = allFeatures[p].split(",")
         p += 1
 
