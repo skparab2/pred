@@ -268,7 +268,8 @@ def predict():
     #     p += 1
 
     data = {
-        "requestdata": request.form,
+        "requestform,": request.form,
+        "request1": request.form.get('PhoneAccelX'),
         "prediction": allFeatures
     }
         # "requestargs": request.args,
