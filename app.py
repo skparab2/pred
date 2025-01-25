@@ -268,7 +268,8 @@ def predict():
     #     p += 1
 
     data = {
-        "requestargs": request.params,
+        "requestargs": request.args,
+        "requestargs": request.args.get('PhoneAccelY'),
         "prediction": allFeatures
     }
     return jsonify(data)
