@@ -268,13 +268,14 @@ def predict():
     #     p += 1
 
     data = {
-        "requestargs": request.args,
         "requestdata": request.data,
-        "requestform": request.form,
-        "requestform": request.values,
-        "requestjson": request.json,
         "prediction": allFeatures
     }
+        # "requestargs": request.args,
+
+        #     "requestform": request.form,
+        # "requestform": request.values,
+        # "requestjson": request.json,
     return jsonify(data)
 
 
